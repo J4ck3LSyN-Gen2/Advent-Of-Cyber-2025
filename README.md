@@ -1082,4 +1082,17 @@ _Host:_ `http://10.65.188.77`
   2. Identify `view_accountinfo?user_id=10`
   3. In the `preview` tab locate the sensitive information.
 
+We can see that the `user_id` corrisponds to our user via `user_id` in the `preview`. This tells us that the application is using the `user_id` as the `reference` for getting details. 
+
+2. Check `local storage` in the `Application` tab and validate the existance of `user_id`
+3. Change the value of `user_id` in `local storage` to `11`.
+  - We are now the `test` user.
+4. Change the value of `user_id` in `local storage` to `10`.
+5. Click the `eye icon` and expose the information.
+6. base64 Example.
+7. Final Question: "What `user_id` has `10` children?"
+  - Manually use the `IDOR` exploit from `local storage` until `15`.
+  - `15` being the user with `10` children.
+
+
 ## Notes:
