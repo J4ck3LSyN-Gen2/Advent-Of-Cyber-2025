@@ -1452,3 +1452,5 @@ Flag: `THM{yougotnumber1-keep-it-going}`
 
 
 ## Notes:
+
+7am drops everyday
