@@ -1,5 +1,7 @@
 # AOC (TryHackMe) 2025 (Advent of Cyber)
 
+<img src="https://tryhackme-badges.s3.amazonaws.com/J4ck3LSyN.png" alt="Your Image Badge" />
+
 ### Introduction
 
 ```markdown
