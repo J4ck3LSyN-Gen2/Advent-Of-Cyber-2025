@@ -1405,6 +1405,10 @@ Flag: `THM{Cr4ck1ng_PDFs_1s_34$y}`
 
 Flag: `THM{Cr4ck1n6_z1p$_1s_34$yyyy}`
 
+### SOC Alert Triaging - Tinsel Triage (Day 10)
+
+### XSS - Merry XSSMas (Day 11)
+
 ### Phishing - Phishmas Greetings (Day 12)
 
 #### "New Audio Message"
